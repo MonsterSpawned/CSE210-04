@@ -1,0 +1,3 @@
+# Guage
+class RockBase():
+    pass
