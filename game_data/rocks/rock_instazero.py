@@ -1,0 +1,2 @@
+class RockInstaZero():
+    pass
