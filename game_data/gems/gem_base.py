@@ -1,4 +1,5 @@
 # Bryan
+from turtle import *
 import turtle
 import math
 import random
