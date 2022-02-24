@@ -1,17 +1,14 @@
 # Josh
 # REFERENCE CODE: https://www.geeksforgeeks.org/create-a-snake-game-using-turtle-in-python/
-from time import sleep
-import turtle
-from game_data.game_utils import GameUtils
-from game_data.player import Player
 
-class Game():
-    
-    def quit_game(self):
-        self.should_quit = True
-        sleep(1)
-        exit(0)
-    
+import turtle
+from time import sleep
+
+from game_data.player import Player
+from game_data.game_utils import GameUtils
+
+
+class Game:
     def __init__(self):
         self.should_quit = False
         self.gameutils = GameUtils()
@@ -25,8 +22,17 @@ class Game():
         self.window.onkeypress(self.quit_game, "Escape")
         self.window.onkeypress(self.player.move_left, "a")
         self.window.onkeypress(self.player.move_right, "d")
-        turtle.write(f"{self.gameutils.get_game_name()}", align="center", font=("Verdana", 30, "normal"))
+        turtle.write(
+            f"{self.gameutils.get_game_name()}",
+            align="center",
+            font=("Verdana", 30, "normal"),
+        )
         sleep(5)
+
+    def quit_game(self):
+        self.should_quit = True
+        sleep(1)
+        exit(0)
 
     def start_game(self):
         self.window.bgcolor("black")
@@ -36,6 +42,7 @@ class Game():
                 print(f"Thanks for playing {self.gameutils.get_game_name()}!")
                 break
         self.window.mainloop()
+
 
 if __name__ == "__main__":
     game = Game()
