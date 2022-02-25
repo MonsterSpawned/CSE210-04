@@ -1,4 +1,5 @@
 # Bryan
+import os
 from turtle import *
 import turtle
 import math
@@ -16,13 +17,13 @@ class GemBase:
         self.score_multiplier = 0
         self.is_special = False
         self.gem_color = "white"
-        self.collect_sound = f"data{sep}sounds{sep}collect_sound.wav"
+        self.collect_sound = f"data{sep}sounds{sep}gem_collect_sound.wav"
         self.cur_x = 0
         self.cur_y = -250
         self.cur_heading = 90
         self.gem = turtle.Turtle()
         self.gem.color(self.gem_color)
-        self.gem.shape(f"data{sep}textures{sep}gem.gif")
+        self.gem.shape(f"{os.getcwd()+sep}data{sep}textures{sep}gem.gif")
         self.gem.penup()
         self.gem.speed(0)
         self.gem.setposition(self.cur_x, self.cur_y)

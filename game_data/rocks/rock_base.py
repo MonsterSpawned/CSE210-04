@@ -1,4 +1,6 @@
 # Guage
+from os import sep
+import os
 from turtle import *
 import winsound
 from pathlib import Path
@@ -9,13 +11,13 @@ class RockBase:
         self.rock_speed = 0
         self.rock_chance = 0
         self.rock_color = "blue"
-        self.collect_sound = Path("./data/sounds/collect_sound.wav")
+        self.collect_sound = Path(f"data{sep}sounds{sep}rock_collect_sound.wav")
         self.cur_x = 0
         self.cur_y = -250
         self.cur_heading = 90
         self.rock = Turtle()
         self.rock.color(self.rock_color)
-        self.rock.shape(Path("./data/textures/rock.gif"))
+        self.rock.shape(f"{os.getcwd()+sep}data{sep}textures{sep}rock.gif")
         self.rock.penup()
         self.rock.speed(0)
         self.rock.setposition(self.cur_x, self.cur_y)
