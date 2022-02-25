@@ -19,16 +19,15 @@ class GemBase():
         self.is_special = False
         self.gem_color = "white"
         self.collect_sound = f"{os.getcwd()+sep}data{sep}sounds{sep}gem_collect.wav"
-        self.cur_x = 0
-        self.cur_y = -250
+        self.cur_x = random.randint(-300,300)
+        self.cur_y = 300
         self.cur_heading = 90
         self.gem = turtle.Turtle()
         self.gem.color(self.gem_color)
         self.gem.shape(f"{os.getcwd()+sep}data{sep}textures{sep}gem.gif")
         self.gem.penup()
-        self.gem.speed(0)
-        self.gem.setposition(self.cur_x, self.cur_y)
-        self.gem.setheading(self.cur_heading)
+        self.gem.right(self.cur_heading)
+        self.gem.speed(self.gem_speed)
 
     def get_collect_sound(self):
         return self.collect_sound

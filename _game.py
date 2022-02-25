@@ -61,6 +61,8 @@ class Game:
             if self.should_quit:
                 print(f"Thanks for playing {self.gameutils.get_game_name()}!")
                 break
+            # for obj in gem_list:
+            #     obj.forward(obj.get_speed)
 
         self.window.mainloop()
 
@@ -73,7 +75,6 @@ class Game:
             self.gem_list.append(Rock())
         if randint(0,self.boulder_chance) > 50:
             self.gem_list.append(RockBoulder())
-
 
 if __name__ == "__main__":
     game = Game()

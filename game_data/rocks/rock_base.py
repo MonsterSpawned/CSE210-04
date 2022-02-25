@@ -17,18 +17,15 @@ class RockBase():
         self.rock_size = 1
         self.rock_color = "blue"
         self.collect_sound = f"data{sep}sounds{sep}rock_hit.wav"
-        self.cur_x = random.randint(1, 599)
-        self.cur_y = 0
+        self.cur_x = random.randint(-300, 300)
+        self.cur_y = 300
         self.cur_heading = 90
         self.rock = Turtle()
         self.rock.color(self.rock_color)
         self.rock.shape(f"{os.getcwd()+sep}data{sep}textures{sep}rock.gif")
         self.rock.penup()
-        self.rock.speed(0)
-        self.rock.xcor()
-        self.
-        self.rock.setposition(self.cur_x, self.cur_y)
-        self.rock.setheading(self.cur_heading)
+        self.rock.speed(self.rock_speed)
+        self.rock.right(90)
         self.rock.turtlesize(self.rock_size)
 
 

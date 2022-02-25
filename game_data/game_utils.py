@@ -10,11 +10,13 @@ import math
 
 from game_data.rocks.rock import Rock
 
-class GameUtils:
+class GameUtils():
     def __init__(self):
         self.currentScore = 0
         # font = pygame.font.Font('freesansbold.ttf', 20)
         self.game_name = "Gem and Rock Game"
+        self.screen_x = 600
+        self.screen_y = 600
 
     def draw_text_to_screen(self, text_var, x_var, y_var):
         pen = turtle.Turtle()
