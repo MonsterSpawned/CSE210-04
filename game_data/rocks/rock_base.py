@@ -9,7 +9,9 @@ from pathlib import Path
 class RockBase:
     def __init__(self):
         self.rock_speed = 0
+        self.rock_name = "Rock"
         self.rock_chance = 0
+        self.score_subtraction = 0
         self.rock_color = "blue"
         self.collect_sound = Path(f"data{sep}sounds{sep}rock_collect_sound.wav")
         self.cur_x = 0
