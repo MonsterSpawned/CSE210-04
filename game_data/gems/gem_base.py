@@ -6,10 +6,11 @@ import math
 import random
 import winsound
 from os.path import sep
+from game_data.game_utils import GameUtils
 
-
-class GemBase:
+class GemBase():
     def __init__(self):
+        self.game_utils = GameUtils()
         self.gem_name = "Base Gem"
         self.gem_speed = 0
         self.gem_chance = 0
@@ -17,7 +18,7 @@ class GemBase:
         self.score_multiplier = 0
         self.is_special = False
         self.gem_color = "white"
-        self.collect_sound = f"data{sep}sounds{sep}gem_collect_sound.wav"
+        self.collect_sound = f"{os.getcwd()+sep}data{sep}sounds{sep}gem_collect.wav"
         self.cur_x = 0
         self.cur_y = -250
         self.cur_heading = 90
@@ -33,7 +34,7 @@ class GemBase:
         return self.collect_sound
 
     def play_collect_sound(self):
-        winsound.PlaySound(self.get_collect_sound(), winsound.SND_ASYNC)
+        self.game_utils.play_sound(self.get_collect_sound())
 
     def move_gem(self):
         pass

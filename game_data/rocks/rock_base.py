@@ -4,32 +4,39 @@ import os
 from turtle import *
 import winsound
 from pathlib import Path
+import random
+from game_data.game_utils import GameUtils
 
-
-class RockBase:
+class RockBase():
     def __init__(self):
+        self.game_utils = GameUtils()
         self.rock_speed = 0
         self.rock_name = "Rock"
         self.rock_chance = 0
         self.score_subtraction = 0
+        self.rock_size = 1
         self.rock_color = "blue"
-        self.collect_sound = Path(f"data{sep}sounds{sep}rock_collect_sound.wav")
-        self.cur_x = 0
-        self.cur_y = -250
+        self.collect_sound = f"data{sep}sounds{sep}rock_hit.wav"
+        self.cur_x = random.randint(1, 599)
+        self.cur_y = 0
         self.cur_heading = 90
         self.rock = Turtle()
         self.rock.color(self.rock_color)
         self.rock.shape(f"{os.getcwd()+sep}data{sep}textures{sep}rock.gif")
         self.rock.penup()
         self.rock.speed(0)
+        self.rock.xcor()
+        self.
         self.rock.setposition(self.cur_x, self.cur_y)
         self.rock.setheading(self.cur_heading)
+        self.rock.turtlesize(self.rock_size)
+
 
     def get_collect_sound(self):
         return self.collect_sound
 
     def play_collect_sound(self):
-        winsound.PlaySound(str(self.get_collect_sound()), winsound.SND_ASYNC)
+        self.game_utils.play_sound(self.get_collect_sound())
 
     def move_rock(self):
         pass
