@@ -52,8 +52,7 @@ class Game():
             font=("Verdana", 30, "normal"),
         )
         sleep(3)
-        turtle.clear #attempt to delete game name from screen
-        sleep(3)
+        turtle.clear() #attempt to delete game name from screen
 
     def get_game_utils(self):
         return self.gameutils
@@ -65,7 +64,7 @@ class Game():
 
     def start_game(self):
 
-        self.window.bgcolor("black")
+        self.window.bgcolor("white")
 
         while True:
             gem_list = []
