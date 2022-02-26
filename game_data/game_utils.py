@@ -1,3 +1,0 @@
-# Aitana
-class GameUtils():
-    pass

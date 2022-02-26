@@ -1,3 +1,0 @@
-# Bryan
-class GemBase():
-    pass

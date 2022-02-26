@@ -1,3 +1,0 @@
-# Guage
-class RockBase():
-    pass

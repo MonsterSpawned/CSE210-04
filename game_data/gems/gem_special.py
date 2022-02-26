@@ -1,3 +1,0 @@
-# Bryan
-class GemSpecial():
-    pass
