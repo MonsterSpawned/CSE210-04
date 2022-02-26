@@ -14,7 +14,7 @@ from game_data.rocks.rock import Rock
 class GameUtils():
     def __init__(self):
         self.currentScore = 0
-        self.game_name = "Gem and Rock Game"
+        self.game_name = "GREED"
         self.screen_x = 600
         self.screen_y = 600
         self.entity_manager = EntityManager()

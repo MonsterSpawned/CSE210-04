@@ -2,15 +2,28 @@
 # REFERENCE CODE: https://www.geeksforgeeks.org/create-a-snake-game-using-turtle-in-python/
 # More REFERENCE CODE: https://github.com/smahesh29/Space-Invader-Game/blob/master/space.py
 
+from os import sep
+import os
+import random
 import turtle
 from time import sleep
 from random import randint
 
 from game_data.game_utils import GameUtils
+from game_data.gems.gem_simple import GemSimple
+from game_data.gems.gem_special import GemSpecial
+from game_data.gems.gem_ultra_rare import GemUltraRare
 from game_data.player import Player
+from game_data.rocks.rock import Rock
+from game_data.rocks.rock_boulder import Boulder
 
 class Game():
     def __init__(self):
+        turtle.addshape(f"{os.getcwd()+sep}data{sep}textures{sep}gem.gif")
+        turtle.addshape(f"{os.getcwd()+sep}data{sep}textures{sep}gem_special.gif")
+        turtle.addshape(f"{os.getcwd()+sep}data{sep}textures{sep}boulder.gif")
+        turtle.addshape(f"{os.getcwd()+sep}data{sep}textures{sep}rock.gif")
+        turtle.addshape(f"{os.getcwd()+sep}data{sep}textures{sep}turtle.gif")
         self.should_quit = False
         self.gameutils = GameUtils()
         self.player = Player()
@@ -38,7 +51,7 @@ class Game():
             align="center",
             font=("Verdana", 30, "normal"),
         )
-        sleep(5)
+        sleep(3)
         turtle.clear #attempt to delete game name from screen
         sleep(3)
 
@@ -53,10 +66,34 @@ class Game():
     def start_game(self):
 
         self.window.bgcolor("black")
-        self.gameutils.draw_text_to_screen("Score: 0", 0, 200 )
 
         while True:
+            gem_list = []
+            rock_list  = []
+            
+            if len(gem_list) == 0:
+                gem_type = random.randint(1,3)
+                if gem_type == 1:
+                    gem = GemSimple()
+                    gem_list.append(gem)
+                if gem_type == 2:
+                    gem = GemSpecial()
+                    gem_list.append(gem)
+                if gem_type == 3:
+                    gem = GemUltraRare()
+                    gem_list.append(gem)
+
+            if len(rock_list) == 0:
+                rock_type = random.randint(1, 2)
+                if rock_type == 1:
+                    rock = Rock()
+                    rock_list.append(rock)
+                elif rock_type == 2:
+                    rock = Boulder()
+                    rock_list.append(rock)
+                    
             self.window.update()
+            self.gameutils.draw_text_to_screen(f"Score: {self.gameutils.currentScore}", 0, 200 )
             if self.should_quit:
                 print(f"Thanks for playing {self.gameutils.get_game_name()}!")
                 break
@@ -71,9 +108,9 @@ class Game():
         if randint(0,self.special_gem_chance) > 50:
             self.gem_list.append(GemSpecial())
         if randint(0,self.rock_chance) > 50:
-            self.gem_list.append(Rock())
+            self.rock_list.append(Rock())
         if randint(0,self.boulder_chance) > 50:
-            self.gem_list.append(RockBoulder())
+            self.rock_list.append(Boulder())
 
 if __name__ == "__main__":
     game = Game()

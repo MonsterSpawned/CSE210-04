@@ -33,11 +33,5 @@ class GemBase():
     def play_collect_sound(self):
         self.game_utils.play_sound(self.get_collect_sound())
 
-    def move_gem(self):
-        pass
-
-    def animate_gem(self):
-        pass
-
     def get_gem_color(self):
         return self.gem_color

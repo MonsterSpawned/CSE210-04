@@ -2,7 +2,7 @@
 from game_data.rocks.rock_base import RockBase
 import random
 
-class RockBoulder(RockBase):
+class Boulder(RockBase):
     # Pulls from rock base
     def __init__(self):
         super().__init__()

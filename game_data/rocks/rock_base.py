@@ -7,7 +7,9 @@ from pathlib import Path
 import random
 
 class RockBase():
+    #creating the base rock class to provide simple characteristics
     def __init__(self):
+        #initializing the rock character
         self.rock_speed = 0
         self.rock_name = "Rock"
         self.rock_chance = 0
@@ -32,12 +34,6 @@ class RockBase():
 
     def play_collect_sound(self):
         self.game_utils.play_sound(self.get_collect_sound())
-
-    def move_rock(self):
-        pass
-
-    def animate_rock(self):
-        pass
 
     def get_rock_color(self):
         return self.rock_color
