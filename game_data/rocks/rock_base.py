@@ -5,11 +5,9 @@ from turtle import *
 import winsound
 from pathlib import Path
 import random
-from game_data.game_utils import GameUtils
 
 class RockBase():
     def __init__(self):
-        self.game_utils = GameUtils()
         self.rock_speed = 0
         self.rock_name = "Rock"
         self.rock_chance = 0

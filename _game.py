@@ -6,19 +6,15 @@ import turtle
 from time import sleep
 from random import randint
 
-from game_data.gems.gem_simple import GemSimple
-from game_data.gems.gem_special import GemSpecial
-from game_data.rocks.rock import Rock
-from game_data.rocks.rock_boulder import RockBoulder
-
-from game_data.player import Player
 from game_data.game_utils import GameUtils
+from game_data.player import Player
 
-class Game:
+class Game():
     def __init__(self):
         self.should_quit = False
         self.gameutils = GameUtils()
         self.player = Player()
+        self.entity_manager = self.gameutils.get_entity_manager()
         self.window = turtle.Screen()
         self.window.title(f"{self.gameutils.get_game_name()}:")
         self.window.bgcolor("white")
@@ -45,6 +41,9 @@ class Game:
         sleep(5)
         turtle.clear #attempt to delete game name from screen
         sleep(3)
+
+    def get_game_utils(self):
+        return self.gameutils
 
     def quit_game(self):
         self.should_quit = True

@@ -4,6 +4,7 @@ from os import sep
 import os
 import turtle
 import winsound
+from game_data.entity_manager import EntityManager
 from game_data.gems.gem_special import GemSpecial
 from game_data.player import Player
 import math
@@ -13,10 +14,13 @@ from game_data.rocks.rock import Rock
 class GameUtils():
     def __init__(self):
         self.currentScore = 0
-        # font = pygame.font.Font('freesansbold.ttf', 20)
         self.game_name = "Gem and Rock Game"
         self.screen_x = 600
         self.screen_y = 600
+        self.entity_manager = EntityManager()
+
+    def get_entity_manager(self):
+        return self.entity_manager
 
     def draw_text_to_screen(self, text_var, x_var, y_var):
         pen = turtle.Turtle()

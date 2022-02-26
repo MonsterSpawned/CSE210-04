@@ -6,11 +6,9 @@ import math
 import random
 import winsound
 from os.path import sep
-from game_data.game_utils import GameUtils
 
 class GemBase():
     def __init__(self):
-        self.game_utils = GameUtils()
         self.gem_name = "Base Gem"
         self.gem_speed = 0
         self.gem_chance = 0

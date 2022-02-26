@@ -2,7 +2,7 @@
 import turtle
 
 
-class Player:
+class Player():
     def __init__(self):
         self.player_color = "green"
         self.player_shape = "square"
