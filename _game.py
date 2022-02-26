@@ -1,3 +1,0 @@
-# Josh
-class Game():
-    pass
